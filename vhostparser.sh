@@ -1,7 +1,7 @@
 #!/bin/bash
 
 file_config="${1}";
-file_config_short="${file_config}_short";
+file_config_short="/tmp/${file_config}_short";
 
 function reset_variables() {
   host_ips="";
@@ -44,3 +44,7 @@ cat ${file_config_short} | grep -vP '^( |       )+?$' | while read line; do
     exit 1;
   fi;
 done
+
+rm ${file_config_short};
+
+exit 0;
