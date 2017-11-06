@@ -1,7 +1,7 @@
 #!/bin/bash
 
 file_config="${1}";
-file_config_short="/tmp/${file_config}_short";
+file_config_short="$(mktemp vhosts_XXXXX.tmp)";
 
 function reset_variables() {
   host_ips="";
