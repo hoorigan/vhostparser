@@ -19,7 +19,7 @@ function unset_variables() {
 
 reset_variables;
 
-grep -iP '(VirtualHost|Server(Name|Alias)|DocumentRoot)' ${file_config} > ${file_config_short};
+grep -iP '(VirtualHost|Server(Name|Alias)|DocumentRoot)' | grep -v '#' | ${file_config} > ${file_config_short};
 
 cat ${file_config_short} | grep -vP '^( |       )+?$' | while read line; do
   if [[ ${line} =~ \<VirtualHost\ .*\> ]]; then
