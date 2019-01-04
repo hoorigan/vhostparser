@@ -12,8 +12,3 @@ so if you have multiple files, you'll have to loop it.
 ```
 vhostparser [INFILE]
 ```
-
-## Contact
-If you have questions about this script, or getting it set up, all of my
-contact information is valid per company standards for email, slack, and
-phone. 
