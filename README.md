@@ -1,6 +1,8 @@
 # vhostparser
 ## Description
-`vhostparser` is a vhost parser.
+`vhostparser` is a shell script that parses Apache configuration files
+for VirtualHost directives, and returns the IP, ServerName, ServerAlias,
+and DocumentRoot values.
 
 ## Installation
 Just put it in `/usr/local/bin` and `chmod +x` it.
