@@ -19,9 +19,9 @@ function unset_variables() {
 
 reset_variables;
 
-grep -iP '(VirtualHost|Server(Name|Alias)|DocumentRoot)' ${file_config} | grep -v '#' > ${file_config_short};
+egrep -i '(VirtualHost|Server(Name|Alias)|DocumentRoot)' ${file_config} | grep -v '#' > ${file_config_short};
 
-cat ${file_config_short} | grep -vP '^( |       )+?$' | while read line; do
+cat ${file_config_short} | egrep -v '^( |       )+?$' | while read line; do
   if [[ ${line} =~ \<VirtualHost\ .*\> ]]; then
     host_ips=$(echo ${line} | perl -pe 's#(<VirtualHost |>)##g' | perl -pe 's#,# #g');
   elif [[ ${line} =~ ServerName\ .* ]]; then
