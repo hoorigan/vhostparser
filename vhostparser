@@ -30,7 +30,7 @@ cat ${file_config_short} | egrep -v '^( |       )+?$' | while read line; do
     if [[ ${host_aliases} == "" ]]; then
       host_aliases=$(echo ${line} | perl -pe 's#ServerAlias ##g' | perl -pe 's#,# #g');
     else
-      host_aliases+=",$(echo ${line} | perl -pe 's#ServerAlias ##g' | perl -pe 's#,# #g')";
+      host_aliases+=" $(echo ${line} | perl -pe 's#ServerAlias ##g' | perl -pe 's#,# #g')";
     fi
   elif [[ ${line} =~ DocumentRoot\ .* ]]; then
     host_root=$(echo ${line} | perl -pe 's#DocumentRoot ##g');
